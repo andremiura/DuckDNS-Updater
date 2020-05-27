@@ -9,7 +9,7 @@
 #include <sys/types.h>
 #include <netinet/in.h>
 #include <netdb.h>
-//#include <openssl/ssl.h>
+#include <openssl/ssl.h>
 
  int socket_connect(char *host, in_port_t port){
          struct hostent *hp;
