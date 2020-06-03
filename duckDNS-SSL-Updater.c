@@ -9,8 +9,7 @@
 #include <sys/types.h>
 #include <netinet/in.h>
 #include <netdb.h>
-#include </usr/include/openssl/ssl.h> // linux
-
+#include <openssl/ssl.h>
  int socket_connect(char *host, in_port_t port){
          struct hostent *hp;
          struct sockaddr_in addr;
@@ -67,8 +66,8 @@
 	SSL *conn = SSL_new(ssl_ctx);
 	SSL_set_fd(conn, fd );	
 
-	int err = SSL_connect(conn);
-	if (err != 1)
+	int connected = SSL_connect(conn);
+	if ( connected != 1)
    	        exit(1);
 
         strcpy(getCommand,"GET /update?domains=");
